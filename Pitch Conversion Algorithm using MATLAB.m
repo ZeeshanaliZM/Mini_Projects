@@ -16,6 +16,3 @@ plot(f11);title("Pitch waveform after Shifting");
 figure(3)
 plot(audio_change);title("New Waveform after changing Pitch and smoothening");
 %soundsc(audio_change,s);
-
-
-
