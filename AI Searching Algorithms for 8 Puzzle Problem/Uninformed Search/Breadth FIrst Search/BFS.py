@@ -11,7 +11,7 @@ class Node:
         self.parent = parent
 
 #Define the class of the tree
-class Tree:
+class Depth_First_Search:
     def __init__(self,initial,goal):
         self.start = Node(initial,None)
         self.goal = goal
@@ -137,4 +137,4 @@ class Tree:
         
 I = np.array([[2,8,3],[1,6,4],[7,0,5]])
 G = np.array([[1,2,3],[8,0,4],[7,6,5]])
-tree1 = Tree(I,G)
+tree1 = Depth_First_Search(I,G)
