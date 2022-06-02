@@ -43,9 +43,11 @@ class Breadth_First_Search:
         if(col<2):
             temp.value[row,col+1] = current.value[row,col]
             temp.value[row,col] = current.value[row,col+1]
+            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
+            #print(check1)
             #print(check2)
-            if(check2 == False):
+            if(check1 == False and check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -58,9 +60,11 @@ class Breadth_First_Search:
         if(row<2):
             temp.value[row+1,col] = current.value[row,col]
             temp.value[row,col] = current.value[row+1,col]
+            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
+            #print(check1)
             #print(check2)
-            if(check2 == False):
+            if(check1 == False and check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -73,9 +77,11 @@ class Breadth_First_Search:
         if(col>0):
             temp.value[row,col-1] = current.value[row,col]
             temp.value[row,col] = current.value[row,col-1]
+            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
+            #print(check1)
             #print(check2)
-            if(check2 == False):
+            if(check1 == False and check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -88,9 +94,11 @@ class Breadth_First_Search:
         if(row>0):
             temp.value[row-1,col] = current.value[row,col]
             temp.value[row,col] = current.value[row-1,col]
+            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
+            #print(check1)
             #print(check2)
-            if(check2 == False):
+            if(check1 == False and check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -111,7 +119,7 @@ class Breadth_First_Search:
 #The main part of the searching algorithm where we look for the goal state.
 #The movement is anticlockwise starting from left
     def BFS(self):
-        #count = 1 #To check for the number of states that have been searched 
+        count = 1 #To check for the number of states that have been searched 
         current = deepcopy(self.start)
         self.queue.append(current)
         while((current.value==self.goal).all()==False):
@@ -128,6 +136,6 @@ class Breadth_First_Search:
             #print()
         self.path_traversed(current)
         
-I = np.array([[2,8,3],[1,6,4],[7,0,5]])
-G = np.array([[1,2,3],[8,0,4],[7,6,5]])
+I = np.array([[1,8,2],[0,4,3],[7,6,5]])
+G = np.array([[1,2,3],[4,5,6],[7,8,0]])
 tree1 = Breadth_First_Search(I,G)
