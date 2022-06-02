@@ -43,11 +43,9 @@ class Breadth_First_Search:
         if(col<2):
             temp.value[row,col+1] = current.value[row,col]
             temp.value[row,col] = current.value[row,col+1]
-            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -60,11 +58,9 @@ class Breadth_First_Search:
         if(row<2):
             temp.value[row+1,col] = current.value[row,col]
             temp.value[row,col] = current.value[row+1,col]
-            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -77,11 +73,9 @@ class Breadth_First_Search:
         if(col>0):
             temp.value[row,col-1] = current.value[row,col]
             temp.value[row,col] = current.value[row,col-1]
-            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -94,11 +88,9 @@ class Breadth_First_Search:
         if(row>0):
             temp.value[row-1,col] = current.value[row,col]
             temp.value[row,col] = current.value[row-1,col]
-            check1 = self.list_present(self.queue,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.queue.append(temp)
         #print(current.value)
         #print(temp.value)
@@ -110,6 +102,7 @@ class Breadth_First_Search:
             current = current.parent
         self.path.append(self.start)
         self.path.reverse()
+        print("Path taken to reach from Initial State to Goal State:")
         for i in self.path:
             print(i.value)
             print()
