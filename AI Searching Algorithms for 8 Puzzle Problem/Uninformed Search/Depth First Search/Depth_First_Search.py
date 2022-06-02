@@ -43,11 +43,9 @@ class Depth_First_Search:
         if(col<2):
             temp.value[row,col+1] = current.value[row,col]
             temp.value[row,col] = current.value[row,col+1]
-            check1 = self.list_present(self.stack,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.stack.insert(1,temp)
         #print(current.value)
         #print(temp.value)
@@ -60,11 +58,9 @@ class Depth_First_Search:
         if(row<2):
             temp.value[row+1,col] = current.value[row,col]
             temp.value[row,col] = current.value[row+1,col]
-            check1 = self.list_present(self.stack,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.stack.insert(1,temp)
         #print(current.value)
         #print(temp.value)
@@ -77,11 +73,9 @@ class Depth_First_Search:
         if(col>0):
             temp.value[row,col-1] = current.value[row,col]
             temp.value[row,col] = current.value[row,col-1]
-            check1 = self.list_present(self.stack,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.stack.insert(1,temp)
         #print(current.value)
         #print(temp.value)
@@ -94,11 +88,9 @@ class Depth_First_Search:
         if(row>0):
             temp.value[row-1,col] = current.value[row,col]
             temp.value[row,col] = current.value[row-1,col]
-            check1 = self.list_present(self.stack,temp)
             check2 = self.list_present(self.visited,temp)
-            #print(check1)
             #print(check2)
-            if(check1 == False and check2 == False):
+            if(check2 == False):
                 self.stack.insert(1,temp)
         #print(current.value)
         #print(temp.value)
@@ -136,6 +128,6 @@ class Depth_First_Search:
             print()
         self.path_traversed(current)
 
-I = np.array([[1, 2, 3], [8, 0, 4], [7, 6, 5]])
-G = np.array([[2, 8, 1], [0, 4, 3], [7, 6, 5]])
+I = np.array([[8,0,6],[5,4,7],[2,3,1]]) #Initial State
+G = np.array([[0,1,2],[3,4,5],[6,7,8]]) #Goal State
 tree1 = Depth_First_Search(I,G)
