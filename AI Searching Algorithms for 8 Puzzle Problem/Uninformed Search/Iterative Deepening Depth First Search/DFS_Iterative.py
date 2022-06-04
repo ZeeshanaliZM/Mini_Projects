@@ -1,4 +1,4 @@
-#Solving 8 puzzle problem using Iterative Depth First Search.
+#Solving 8 puzzle problem using Iterative Deepening Depth First Search.
 #The advantage of this is that since the depth increases after each iteration, it will give us the optimal solution.
 #Disadvnatage is that it repeats the entire process again if goal node not found
 import numpy as np
